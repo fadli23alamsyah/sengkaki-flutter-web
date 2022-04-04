@@ -33,8 +33,8 @@ class _NavbarItemState extends State<NavbarItem> {
             duration: const Duration(milliseconds: 300),
             curve: Curves.ease,
             child: Container(
-              height: 27,
-              width: 27,
+              height: 32,
+              width: 32,
               decoration: BoxDecoration(
                   color: widget.color,
                   borderRadius: BorderRadius.circular(50),
@@ -48,7 +48,7 @@ class _NavbarItemState extends State<NavbarItem> {
                   ]),
               child: Icon(
                 widget.icon,
-                size: 18,
+                size: 20,
                 color: Colors.white,
               ),
             ),
@@ -58,7 +58,7 @@ class _NavbarItemState extends State<NavbarItem> {
             widget.title,
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
-                fontSize: 12,
+                fontSize: 14,
                 color: _isHover ? widget.color : Colors.black,
                 fontWeight: FontWeight.w600,
               ),

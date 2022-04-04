@@ -26,7 +26,7 @@ class Breadcrumb extends StatelessWidget {
         "Sengkaki / Lingkungan",
         style: GoogleFonts.poppins(
           textStyle: const TextStyle(
-            fontSize: 11,
+            fontSize: 12,
             color: Colors.white,
           ),
         ),

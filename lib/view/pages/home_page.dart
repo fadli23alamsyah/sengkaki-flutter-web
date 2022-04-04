@@ -91,7 +91,8 @@ class _HomePageState extends State<HomePage> {
                   child: SvgPicture.asset(
                     '$pathImageAssets/clouds.svg',
                     alignment: Alignment.topCenter,
-                    width: 1700,
+                    width: 3000,
+                    height: MediaQuery.of(context).size.height,
                     fit: BoxFit.cover,
                   ),
                 ),

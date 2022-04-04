@@ -7,7 +7,8 @@
         {
             "name": "web_makassar",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": ["--web-renderer","html"],
         },
         {
             "name": "web_makassar (profile mode)",
