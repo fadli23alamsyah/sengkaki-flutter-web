@@ -9,7 +9,7 @@ class Breadcrumb extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 68, bottom: 8, right: 15, left: 20),
+      padding: const EdgeInsets.only(top: 78, bottom: 8, right: 15, left: 20),
       margin: const EdgeInsets.only(bottom: 50, left: 200, right: 200),
       decoration: BoxDecoration(
         color: shadowColor,

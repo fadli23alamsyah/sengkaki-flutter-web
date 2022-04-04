@@ -12,7 +12,7 @@ class NavBar extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 200),
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-      height: 60,
+      height: 70,
       width: double.infinity,
       decoration: BoxDecoration(
         color: navColor,
