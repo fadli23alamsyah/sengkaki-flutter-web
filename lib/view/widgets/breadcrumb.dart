@@ -5,7 +5,9 @@ import '../../constant.dart';
 import '../../responsive.dart';
 
 class Breadcrumb extends StatelessWidget {
-  const Breadcrumb({Key? key}) : super(key: key);
+  final String title;
+
+  const Breadcrumb({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class Breadcrumb extends StatelessWidget {
           ],
         ),
         child: Text(
-          "Sengkaki / Lingkungan",
+          "Sengkaki / $title",
           style: GoogleFonts.poppins(
             textStyle: const TextStyle(
               fontSize: 12,

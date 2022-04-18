@@ -58,12 +58,10 @@ class _NavbarItemState extends State<NavbarItem> {
           Text(
             widget.title!,
             style: GoogleFonts.poppins(
-              textStyle: TextStyle(
-                fontSize: 14,
-                color: _isHover ? widget.color : Colors.black,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.5,
-              ),
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
+              color: _isHover ? widget.color.withAlpha(180) : Colors.black,
+              letterSpacing: 0.5,
             ),
           ): Container(),
         ],

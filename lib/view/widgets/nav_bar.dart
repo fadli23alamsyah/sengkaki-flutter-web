@@ -52,13 +52,10 @@ class NavBar extends StatelessWidget {
                   children: [
                     NavbarItem(
                       icon: Icons.newspaper,
-                      title: 'Hot News',
-                      color: Colors.red,
+                      title: 'Budaya',
+                      color: Colors.green,
                       onClick: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const DetailPage()));
+                        Get.toNamed(budayaPage);
                       },
                     ),
                     const SizedBox(width: 10),

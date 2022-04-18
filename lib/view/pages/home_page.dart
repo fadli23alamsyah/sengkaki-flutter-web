@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
           SingleChildScrollView(
             child: Stack(
               children: [
+                // start desain background
                 Positioned(
                   top: 8,
                   left: 100,
@@ -98,6 +99,8 @@ class _HomePageState extends State<HomePage> {
                     fit: BoxFit.cover,
                   ),
                 ),
+                // end desain background
+                
                 ConstrainedBox(
                   constraints: BoxConstraints(
                     minHeight: mediaQuery.height,
@@ -107,7 +110,6 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // const Breadcrumb(),
                       const SizedBox(height: 130),
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: mainPadding),
