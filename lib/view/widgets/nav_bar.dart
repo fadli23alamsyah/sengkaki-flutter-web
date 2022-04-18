@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:web_makassar/routes.dart';
 
 import '../../constant.dart';
 import '../pages/detail_page.dart';
 import 'navbar_item.dart';
+import '../../responsive.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 200),
+      margin: EdgeInsets.symmetric(horizontal: Responsive.isDesktop(context) ? 200 : (Responsive.isTablet(context))? 100 : 0),
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
       height: 70,
       width: double.infinity,
@@ -32,40 +35,53 @@ class NavBar extends StatelessWidget {
             text: TextSpan(
               text: "Sengkaki",
               style: TextStyle(
-                fontSize: 22,
+                fontSize: 24,
                 fontFamily: 'Caramel',
                 color: titleColor,
               ),
               children: const [
                 TextSpan(
                   text: "Media",
-                  style: TextStyle(fontSize: 15, color: Colors.black54),
+                  style: TextStyle(fontSize: 17, color: Colors.black54),
                 ),
               ],
             ),
           ),
-          Row(
-            children: [
-              NavbarItem(
-                icon: Icons.menu,
-                title: 'Menu',
-                color: Colors.green,
-                onClick: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const DetailPage()));
-                },
-              ),
-              const SizedBox(width: 10),
-              NavbarItem(
-                icon: Icons.newspaper,
-                title: 'Hot News',
-                color: Colors.red,
-                onClick: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const DetailPage()));
-                },
-              ),
-            ],
-          ),
-          
+          (Responsive.isDesktop(context))
+              ? Row(
+                  children: [
+                    NavbarItem(
+                      icon: Icons.newspaper,
+                      title: 'Hot News',
+                      color: Colors.red,
+                      onClick: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DetailPage()));
+                      },
+                    ),
+                    const SizedBox(width: 10),
+                    NavbarItem(
+                      icon: Icons.forest,
+                      title: 'Lingkungan',
+                      color: Colors.blue,
+                      onClick: () {
+                        Get.toNamed(lingkunganPage);
+                      },
+                    ),
+                  ],
+                )
+              : NavbarItem(
+                  icon: Icons.menu,
+                  color: Colors.green,
+                  onClick: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DetailPage()));
+                  },
+                ),
         ],
       ),
     );

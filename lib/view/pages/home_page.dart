@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../model/news.dart';
 import '../../constant.dart';
+import '../../responsive.dart';
 import '../../view/widgets/footer.dart';
 import '../widgets/breadcrumb.dart';
 import '../widgets/grid_item.dart';
@@ -38,6 +39,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double mainPadding = Responsive.isDesktop(context) ? 150 : Responsive.isTablet(context) ? 50 : 10 ;
     var mediaQuery = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: bgColor,
@@ -105,13 +107,13 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Breadcrumb(),
-                      // const SizedBox(height: 130),
+                      // const Breadcrumb(),
+                      const SizedBox(height: 130),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 150),
+                        padding: EdgeInsets.symmetric(horizontal: mainPadding),
                         alignment: Alignment.center,
                         child: Text(
-                          'Media Independen\nUntuk Anda ᨒᨚᨈᨑ',
+                          'Media Independen\nUntuk Anda',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
@@ -125,21 +127,21 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const SizedBox(height: 60),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 150),
+                        padding: EdgeInsets.symmetric(horizontal: mainPadding),
                         child: _isLoading
                             ? const Center(child: CircularProgressIndicator())
                             : StaggeredGrid.count(
-                                crossAxisCount: 3,
+                                crossAxisCount: (Responsive.isDesktop(context))? 3 : (Responsive.isTablet(context)) ? 2 : 1,
                                 mainAxisSpacing: 15,
                                 crossAxisSpacing: 15,
                                 children: [
                                     ...news!.map((item) {
                                       if (news!.indexOf(item) == 0) {
                                         return StaggeredGridTile.count(
-                                          crossAxisCellCount: 2,
+                                          crossAxisCellCount: (Responsive.isDesktop(context))? 2 : 1,
                                           mainAxisCellCount: 1,
                                           child: GridItem(
-                                            orientationLandscape: true,
+                                            orientationLandscape: (Responsive.isDesktop(context))? true : false,
                                             news: item,
                                           ),
                                         );

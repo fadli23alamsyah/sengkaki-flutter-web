@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NavbarItem extends StatefulWidget {
-  const NavbarItem({Key? key, required this.icon, required this.title, required this.color, required this.onClick}) : super(key: key);
+  const NavbarItem({Key? key, required this.icon, this.title, required this.color, required this.onClick}) : super(key: key);
 
   final IconData icon;
-  final String title;
+  final String? title;
   final Color color;
   final Function onClick;
 
@@ -53,17 +53,19 @@ class _NavbarItemState extends State<NavbarItem> {
               ),
             ),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: (widget.title == null) ? 0: 9),
+          (widget.title != null) ?
           Text(
-            widget.title,
+            widget.title!,
             style: GoogleFonts.poppins(
               textStyle: TextStyle(
                 fontSize: 14,
                 color: _isHover ? widget.color : Colors.black,
                 fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
               ),
             ),
-          ),
+          ): Container(),
         ],
       ),
     );

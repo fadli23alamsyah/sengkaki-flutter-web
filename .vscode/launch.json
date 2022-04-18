@@ -21,13 +21,6 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
-        },
-        {
-            "name": "Flutter Web Render HTML",
-            "request": "launch",
-            "type": "dart",
-            "args": ["--web-renderer","html"],
-            "flutterMode": "release",
         }
     ]
 }
