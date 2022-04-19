@@ -7,7 +7,6 @@ import '../../model/news.dart';
 import '../../constant.dart';
 import '../../responsive.dart';
 import '../../view/widgets/footer.dart';
-import '../widgets/breadcrumb.dart';
 import '../widgets/grid_item.dart';
 import '../widgets/nav_bar.dart';
 
@@ -118,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                           'Media Independen\nUntuk Anda',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                               color: titleColor,
                               fontSize: 40,
                               letterSpacing: 3,

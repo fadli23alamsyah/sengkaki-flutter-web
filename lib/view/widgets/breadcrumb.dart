@@ -24,7 +24,7 @@ class Breadcrumb extends StatelessWidget {
           color: shadowColor,
           borderRadius: BorderRadius.only(
               bottomLeft: const Radius.circular(35), bottomRight: Radius.circular((Responsive.isMobile(context))? 35 : 20)),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: shadowNavColor,
               blurRadius: 5,

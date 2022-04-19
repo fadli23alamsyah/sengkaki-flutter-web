@@ -13,15 +13,15 @@ class Footer extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(top: 20),
           padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: navColor,
             borderRadius:
-                const BorderRadius.only(topRight: Radius.circular(35)),
+                BorderRadius.only(topRight: Radius.circular(35)),
           ),
           child: Column(
             children: [
               Image.asset('$pathImageAssets/support.png'),
-              Divider(
+              const Divider(
                 color: cardColor,
                 thickness: 3,
               ),
@@ -31,9 +31,9 @@ class Footer extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: titleColor,
-              borderRadius: const BorderRadius.horizontal(right: Radius.circular(50))),
+              borderRadius: BorderRadius.horizontal(right: Radius.circular(50))),
           child: Text(
             'Support By',
             style: GoogleFonts.poppins(

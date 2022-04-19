@@ -17,9 +17,9 @@ class NavBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
       height: 70,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: navColor,
-        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(35)),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(35)),
         boxShadow: [
           BoxShadow(
             color: shadowNavColor,
@@ -32,14 +32,14 @@ class NavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           RichText(
-            text: TextSpan(
+            text: const TextSpan(
               text: "Sengkaki",
               style: TextStyle(
                 fontSize: 24,
                 fontFamily: 'Caramel',
                 color: titleColor,
               ),
-              children: const [
+              children: [
                 TextSpan(
                   text: "Media",
                   style: TextStyle(fontSize: 17, color: Colors.black54),
@@ -71,7 +71,7 @@ class NavBar extends StatelessWidget {
                 )
               : NavbarItem(
                   icon: Icons.menu,
-                  color: Colors.green,
+                  color: titleColor,
                   onClick: () {
                     Navigator.push(
                         context,

@@ -71,10 +71,9 @@ class _GridItemState extends State<GridItem> {
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: navColor,
-                  borderRadius:
-                      const BorderRadius.only(topRight: Radius.circular(10)),
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
                 ),
                 child: Text(
                   widget.news.category,
