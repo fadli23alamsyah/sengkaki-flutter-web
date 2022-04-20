@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../responsive.dart';
 import '../widgets/no_data.dart';
@@ -90,36 +91,56 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ],
-      body: _isLoading
-          ? const CircularProgressIndicator()
-          : (news!.isEmpty) 
-            ? const NoData()
-            : StaggeredGrid.count(
-              crossAxisCount: (Responsive.isDesktop(context))  ? 3 : (Responsive.isTablet(context)) ? 2 : 1,
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 15,
-              children: [
-                  ...news!.map((item) {
-                    if (news!.indexOf(item) == 0) {
-                      return StaggeredGridTile.count(
-                        crossAxisCellCount:
-                            (Responsive.isDesktop(context)) ? 2 : 1,
-                        mainAxisCellCount: 1,
-                        child: GridItem(
-                          orientationLandscape:
-                              (Responsive.isDesktop(context)) ? true : false,
-                          news: item,
-                        ),
-                      );
-                    } else {
-                      return StaggeredGridTile.count(
-                        crossAxisCellCount: 1,
-                        mainAxisCellCount: 1,
-                        child: GridItem(news: item),
-                      );
-                    }
-                  })
-                ]),
+      body: Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            child: Text(
+              'Media Independen\nUntuk Anda',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                textStyle: const TextStyle(
+                  color: titleColor,
+                  fontSize: 40,
+                  letterSpacing: 3,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 60),
+          _isLoading
+              ? const CircularProgressIndicator()
+              : (news!.isEmpty) 
+                ? const NoData()
+                : StaggeredGrid.count(
+                  crossAxisCount: (Responsive.isDesktop(context))  ? 3 : (Responsive.isTablet(context)) ? 2 : 1,
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15,
+                  children: [
+                      ...news!.map((item) {
+                        if (news!.indexOf(item) == 0) {
+                          return StaggeredGridTile.count(
+                            crossAxisCellCount:
+                                (Responsive.isDesktop(context)) ? 2 : 1,
+                            mainAxisCellCount: 1,
+                            child: GridItem(
+                              orientationLandscape:
+                                  (Responsive.isDesktop(context)) ? true : false,
+                              news: item,
+                            ),
+                          );
+                        } else {
+                          return StaggeredGridTile.count(
+                            crossAxisCellCount: 1,
+                            mainAxisCellCount: 1,
+                            child: GridItem(news: item),
+                          );
+                        }
+                      })
+                    ]),
+        ],
+      ),
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:web_makassar/view/widgets/breadcrumb.dart';
-import 'package:web_makassar/view/widgets/footer.dart';
 
-import '../../view/widgets/nav_bar.dart';
+import 'base_page.dart';
 import '../../constant.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -19,49 +17,19 @@ class _CategoryPageState extends State<CategoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context).size;
-
-    return Scaffold(
-      backgroundColor: bgColor,
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 250,
-                  decoration: const BoxDecoration(
-                    color: Colors.blueGrey,
-                  ),
-                ),
-                ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minWidth: mediaQuery.width,
-                    minHeight: mediaQuery.height,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Breadcrumb(title: category),
-                      // FittedBox(
-                      //   child: Column(
-                      //     children: [
-                      //       Text(category),
-                      //     ],
-                      //   ),
-                      // ),
-                      const Footer()
-                    ],
-                  ),
-                ),
-              ],
-            ),
+    return BasePage(
+      background: [
+        Container(
+          height: 200,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: Colors.amberAccent,
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
           ),
-          const NavBar(),
-        ],
-      ),
+        ),
+      ],
+      titleBreadcrumb: category,
+      body: const Text('Okey'),
     );
   }
 }

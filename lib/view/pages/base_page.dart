@@ -40,23 +40,6 @@ class BasePage extends StatelessWidget{
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       (titleBreadcrumb != null)? Breadcrumb(title: titleBreadcrumb!) : const SizedBox(height: 130),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: mainPadding),
-                        alignment: Alignment.center,
-                        child: Text(
-                          'Media Independen\nUntuk Anda',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                              color: titleColor,
-                              fontSize: 40,
-                              letterSpacing: 3,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 60),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: mainPadding),
                         child: Center(child: body),
