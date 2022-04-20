@@ -124,12 +124,12 @@ class _GridItemState extends State<GridItem> {
                 Flexible(
                   child: Text(
                     widget.news.subTitle,
-                    maxLines: widget.orientationLandscape ? 8 : 3,
+                    maxLines: widget.orientationLandscape ? 8 : 2,
                     style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontSize: 16,
-                        color: Color(0xFF999aa4),
+                        color: subTitleColor,
                       ),
                     ),
                   ),

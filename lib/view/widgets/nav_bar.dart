@@ -73,10 +73,7 @@ class NavBar extends StatelessWidget {
                   icon: Icons.menu,
                   color: titleColor,
                   onClick: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DetailPage()));
+                    
                   },
                 ),
         ],
