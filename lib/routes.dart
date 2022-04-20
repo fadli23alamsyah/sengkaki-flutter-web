@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../view/pages/category_page.dart';
 import '../view/pages/detail_page.dart';
 import '../view/pages/home_page.dart';
