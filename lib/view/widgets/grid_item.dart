@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../model/news.dart';
@@ -15,14 +16,23 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> {
+  late String linkPage;
   bool scaleImage = false;
+
+  @override
+  void initState() {
+    super.initState();
+    String titleLink = widget.news.title.replaceAll(' ', '-');
+    // linkPage = '/${widget.news.category.toLowerCase()}/$titleLink';
+    linkPage = '/budaya/$titleLink'; // fakeurl
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       mouseCursor: SystemMouseCursors.click,
       onTap: (){
-        print('tap');
+        Get.toNamed(linkPage);
       },
       onHover: (val){
         setState(() {

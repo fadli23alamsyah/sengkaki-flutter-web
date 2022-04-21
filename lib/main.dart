@@ -6,7 +6,7 @@ import '../routes.dart';
 
 void main() {
   // WidgetsBinding.instance;
-  setPathUrlStrategy(); // to remove # in url
+  // setPathUrlStrategy(); // to remove # in url
   runApp(const MyApp());
 }
 

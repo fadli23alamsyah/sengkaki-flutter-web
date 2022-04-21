@@ -150,13 +150,15 @@ class NavDialogItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 6),
-              Text(
-                title,
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color:Colors.black,
-                  letterSpacing: 0.5,
+              FittedBox(
+                child: Text(
+                  title,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color:Colors.black,
+                    letterSpacing: 0.5,
+                  ),
                 ),
               )
             ],
