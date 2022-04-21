@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web_makassar/routes.dart';
 
+import '../../view/widgets/nav_dialog.dart';
 import '../../constant.dart';
-import '../pages/detail_page.dart';
 import 'navbar_item.dart';
 import '../../responsive.dart';
 
@@ -73,7 +73,7 @@ class NavBar extends StatelessWidget {
                   icon: Icons.menu,
                   color: titleColor,
                   onClick: () {
-                    
+                    Get.dialog(const NavDialog());
                   },
                 ),
         ],
