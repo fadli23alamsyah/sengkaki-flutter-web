@@ -42,7 +42,7 @@ class BasePage extends StatelessWidget{
                       (titleBreadcrumb != null)? Breadcrumb(title: titleBreadcrumb!) : const SizedBox(height: 130),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: mainPadding),
-                        child: Center(child: body),
+                        child: body,
                       ),
                       const SizedBox(height: 60),
                       const Footer(),

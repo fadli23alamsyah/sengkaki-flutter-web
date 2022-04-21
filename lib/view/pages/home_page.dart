@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<News>? news;
+  List<News>? latestNews;
   bool _isLoading = true;
 
   @override
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   Future getData() async {
     Future.delayed(const Duration(seconds: 5), () {
       setState(() {
-        news = allNews;
+        latestNews = allNews;
         _isLoading = false;
       });
     });
@@ -111,15 +111,15 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 60),
           _isLoading
               ? const CircularProgressIndicator()
-              : (news!.isEmpty) 
+              : (latestNews!.isEmpty) 
                 ? const NoData()
                 : StaggeredGrid.count(
                   crossAxisCount: (Responsive.isDesktop(context))  ? 3 : (Responsive.isTablet(context)) ? 2 : 1,
                   mainAxisSpacing: 15,
                   crossAxisSpacing: 15,
                   children: [
-                      ...news!.map((item) {
-                        if (news!.indexOf(item) == 0) {
+                      ...latestNews!.map((item) {
+                        if (latestNews!.indexOf(item) == 0) {
                           return StaggeredGridTile.count(
                             crossAxisCellCount:
                                 (Responsive.isDesktop(context)) ? 2 : 1,
