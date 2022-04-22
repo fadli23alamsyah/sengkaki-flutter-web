@@ -133,7 +133,7 @@ class _GridItemState extends State<GridItem> {
                     : const SizedBox(height: 8),
                 Flexible(
                   child: Text(
-                    widget.news.subTitle,
+                    widget.news.description,
                     maxLines: widget.orientationLandscape ? 8 : 2,
                     style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
