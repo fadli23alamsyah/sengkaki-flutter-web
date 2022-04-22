@@ -5,7 +5,7 @@ import 'package:url_strategy/url_strategy.dart';
 import '../routes.dart';
 
 void main() {
-  // WidgetsBinding.instance;
+  WidgetsFlutterBinding.ensureInitialized;
   // setPathUrlStrategy(); // to remove # in url
   runApp(const MyApp());
 }
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Web Makassar',
+      title: 'Sengkaki Media',
       initialRoute: '/',
       getPages: routesName,
     );
