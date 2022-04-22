@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../constant.dart';
@@ -85,9 +84,9 @@ Vitae auctor eu augue ut lectus arcu. Massa sapien faucibus et molestie ac feugi
                 color: secondInfoBgColor,
                 borderRadius: BorderRadius.circular(100),
               ),
-              child: Text(
+              child: const Text(
                 'Desember 23, 2000',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
                   color: Colors.black54,
                 ),
@@ -111,6 +110,10 @@ Vitae auctor eu augue ut lectus arcu. Massa sapien faucibus et molestie ac feugi
                       fit: BoxFit.cover,
                     ),
                   ),
+                  Text(
+                    'sumber image',
+                    style: GoogleFonts.poppins(color: Colors.grey.shade500),
+                  ),
                   const SizedBox(height: 15),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -118,7 +121,6 @@ Vitae auctor eu augue ut lectus arcu. Massa sapien faucibus et molestie ac feugi
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(content),
-
                       ],
                     ),
                   )

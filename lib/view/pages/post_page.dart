@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../utils/text_utils.dart';
+
 class PostPage extends StatefulWidget {
   const PostPage({ Key? key }) : super(key: key);
 
@@ -16,13 +18,18 @@ class _PostPageState extends State<PostPage> {
       appBar: AppBar(
         title: const Text('Admin Page'),
         actions: [
-          TextButton.icon(
-            onPressed: (){}, 
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Colors.white70),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            child: TextButton.icon(
+              onPressed: (){
+                Get.dialog(const FormDialogTable(), barrierDismissible: false);
+              }, 
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.white70),
+              ),
+              icon: const Icon(Icons.add, color: Colors.white,), 
+              label: const Text('Postingan', style: TextStyle(color: Colors.white),),
             ),
-            icon: const Icon(Icons.add, color: Colors.white,), 
-            label: const Text('Postingan', style: TextStyle(color: Colors.white),),
           ),
         ],
       ),
@@ -53,9 +60,9 @@ class _PostPageState extends State<PostPage> {
                   // Field Data
                   TableRow(
                     children: [
-                      TextHeader(title: '1'),
-                      TextData(value: 'coba'),
-                      TextData(value: 'coba'),
+                      const TextHeader(title: '1'),
+                      const TextData(value: 'coba'),
+                      const TextData(value: 'coba'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -116,13 +123,35 @@ class FormDialogTable extends StatefulWidget{
 }
 
 class _FormDialogTableState extends State<FormDialogTable>{
+  final List<String> categoryName = ['budaya', 'lingkungan'];
+  
   final _formKey = GlobalKey<FormState>();
+  final title = TextEditingController();
+  final description = TextEditingController();
+  String? category;
+  final urlImg = TextEditingController();
+  final sourceImg = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _formKey.currentState!.dispose();
+    title.dispose();
+    description.dispose();
+    urlImg.dispose();
+    sourceImg.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-        (widget.id != null)? 'Update Post' : 'Tambah Post',
+        (widget.id != null)? 'Update Post' : 'Add Post',
         style: GoogleFonts.poppins(),
       ),
       content: Container(
@@ -135,15 +164,51 @@ class _FormDialogTableState extends State<FormDialogTable>{
             child: Column(
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
-                    label: Text('Title', style: GoogleFonts.poppins()),
+                  decoration: const InputDecoration(
+                    label: Text('Title',),
                   ),
+                  validator: (val){
+                    return (val == null || val.isEmpty) ? 'Cannot be empty' :  null ;
+                  },
                 ),
                 TextFormField(
                   maxLines: 10,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     label: Text('Description'),
                   ),
+                  validator: (val){
+                    return (val == null || val.isEmpty) ? 'Cannot be empty' :  null ;
+                  },
+                ),
+                DropdownButtonFormField(
+                  decoration: const InputDecoration(
+                    label: Text('Category'),
+                  ),
+                  items: categoryName.map((ca) => DropdownMenuItem(child: Text(ca.ucWords()), value: ca,)).toList(), 
+                  value: category,
+                  onChanged: (val){
+                    category = val.toString();
+                    print(category);
+                  },
+                  validator: (val){
+                    return (val == null) ? 'Cannot be empty' :  null ;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    label: Text('Url Image'),
+                  ),
+                  validator: (val){
+                    return (val == null || val.isEmpty) ? 'Cannot be empty' :  null ;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    label: Text('Source Image'),
+                  ),
+                  validator: (val){
+                    return (val == null || val.isEmpty) ? 'Cannot be empty' :  null ;
+                  },
                 ),
               ],
             )
@@ -162,9 +227,13 @@ class _FormDialogTableState extends State<FormDialogTable>{
           ),
         ),
         ElevatedButton(
-          onPressed: (){}, 
+          onPressed: (){
+            if(_formKey.currentState!.validate()){
+              Get.back();
+            }
+          }, 
           child: Text(
-            (widget.id != null) ? 'Update' : 'Tambah', 
+            (widget.id != null) ? 'Update' : 'Add', 
             style: GoogleFonts.poppins(
               color: Colors.white
             ),

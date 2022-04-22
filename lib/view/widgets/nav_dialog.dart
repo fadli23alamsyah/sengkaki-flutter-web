@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:web_makassar/view/widgets/navbar_item.dart';
 
 import '../../responsive.dart';
-import '../../constant.dart';
 import '../../routes.dart';
 
 class NavDialog extends StatelessWidget {
