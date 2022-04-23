@@ -1,3 +1,5 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -140,54 +142,58 @@ class Footer extends StatelessWidget {
             // footer desktop
             // responsive
             desktop: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const Expanded(
                   flex: 1,
-                  child: LogoMedia(),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: FooterSection(
-                    title: 'Menu', 
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
-                        FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
-                        FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
-                      ],
-                    ),
-                  ),
+                  child: Center(child: LogoMedia()),
                 ),
                 Expanded(
                   flex: 1,
                   child: Column(
                     children: [
                       FooterSection(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        title: 'Menu', 
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
+                            FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
+                            FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10,),
+                      FooterSection(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         title: 'Support By', 
                         child: Image.asset('$pathImageAssets/support.png'),
                       ),
-                      const SizedBox(height: 10),
-                      FooterSection(
-                        title: 'Social Media', 
-                        child: Row(
-                          children: [
-                            NavbarItem(
-                              icon: FontAwesomeIcons.instagram, 
-                              color: const Color(0xFFE1306C), 
-                              onClick: ()=>print('object'),
-                            ),
-                            const SizedBox(width: 10,),
-                            NavbarItem(
-                              icon: FontAwesomeIcons.linkedin, 
-                              color: const Color(0xFF0E76A8), 
-                              onClick: ()=>print('object'),
-                            ),
-                          ],
-                        )
-                      ),
                     ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: FooterSection(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    title: 'Social Media', 
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        NavbarItem(
+                          icon: FontAwesomeIcons.instagram, 
+                          color: const Color(0xFFE1306C), 
+                          onClick: ()=> html.window.open('https://instagram.com/pal23pal','instagram'),
+                        ),
+                        const SizedBox(width: 10,),
+                        NavbarItem(
+                          icon: FontAwesomeIcons.linkedin, 
+                          color: const Color(0xFF0E76A8), 
+                          onClick: ()=> html.window.open('https://www.linkedin.com/in/fadlialamsyah/','linkedin'),
+                        ),
+                      ],
+                    )
                   ),
                 ),
               ],
@@ -231,12 +237,13 @@ class FooterMenuItem extends StatelessWidget{
 class FooterSection extends StatelessWidget{
   final String title;
   final Widget child;
-  const FooterSection({Key? key, required this.title, required this.child}) : super(key: key);
+  final CrossAxisAlignment? crossAxisAlignment;
+  const FooterSection({Key? key, required this.title, required this.child, this.crossAxisAlignment = CrossAxisAlignment.start}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: crossAxisAlignment!,
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
@@ -266,14 +273,14 @@ class LogoMedia extends StatelessWidget{
           text: const TextSpan(
             text: "Sengkaki",
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 30,
               fontFamily: 'Caramel',
               color: titleColor,
             ),
             children: [
               TextSpan(
                 text: "Media",
-                style: TextStyle(fontSize: 17, color: Colors.black54),
+                style: TextStyle(fontSize: 23, color: Colors.black54),
               ),
             ],
           ),
@@ -282,7 +289,7 @@ class LogoMedia extends StatelessWidget{
           'Media independen untuk anda',
           style: GoogleFonts.poppins(
             color: Colors.black54,
-            fontSize: 14,
+            fontSize: 16,
             fontWeight: FontWeight.w500,
           ),
         )

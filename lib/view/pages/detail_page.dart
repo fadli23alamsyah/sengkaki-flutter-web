@@ -120,7 +120,12 @@ Vitae auctor eu augue ut lectus arcu. Massa sapien faucibus et molestie ac feugi
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(content),
+                        Text(
+                          content,
+                          style: const TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
                       ],
                     ),
                   )
