@@ -36,7 +36,7 @@ class Footer extends StatelessWidget {
                       flex: 1,
                       child: LogoMedia(),
                     ),
-                    const SizedBox(width: 10,),
+                    const SizedBox(width: 30,),
                     Expanded(
                       flex: 1,
                       child: FooterSection(
@@ -63,17 +63,11 @@ class Footer extends StatelessWidget {
                   title: 'Social Media', 
                   child: Row(
                     children: [
-                      NavbarItem(
-                        icon: FontAwesomeIcons.instagram, 
-                        color: const Color(0xFFE1306C), 
-                        onClick: ()=>print('object'),
-                      ),
+                      instagram(),
                       const SizedBox(width: 10,),
-                      NavbarItem(
-                        icon: FontAwesomeIcons.linkedin, 
-                        color: const Color(0xFF0E76A8), 
-                        onClick: ()=>print('object'),
-                      ),
+                      linkedin(),
+                      const SizedBox(width: 10,),
+                      facebook(),
                     ],
                   )
                 ),
@@ -119,17 +113,11 @@ class Footer extends StatelessWidget {
                         title: 'Social Media', 
                         child: Row(
                           children: [
-                            NavbarItem(
-                              icon: FontAwesomeIcons.instagram, 
-                              color: const Color(0xFFE1306C), 
-                              onClick: ()=>print('object'),
-                            ),
+                            instagram(),
                             const SizedBox(width: 10,),
-                            NavbarItem(
-                              icon: FontAwesomeIcons.linkedin, 
-                              color: const Color(0xFF0E76A8), 
-                              onClick: ()=>print('object'),
-                            ),
+                            linkedin(),
+                            const SizedBox(width: 10,),
+                            facebook(),
                           ],
                         )
                       ),
@@ -181,23 +169,11 @@ class Footer extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        NavbarItem(
-                          icon: FontAwesomeIcons.instagram, 
-                          color: const Color(0xFFE1306C), 
-                          onClick: ()=> html.window.open('https://www.instagram.com/pal23pal','instagram'),
-                        ),
+                        instagram(),
                         const SizedBox(width: 10,),
-                        NavbarItem(
-                          icon: FontAwesomeIcons.linkedin, 
-                          color: const Color(0xFF0E76A8), 
-                          onClick: ()=> html.window.open('https://www.linkedin.com/in/fadlialamsyah/','linkedin'),
-                        ),
+                        linkedin(),
                         const SizedBox(width: 10,),
-                        NavbarItem(
-                          icon: FontAwesomeIcons.facebook, 
-                          color: const Color(0xFF4267B2), 
-                          onClick: ()=> html.window.open('https://www.facebook.com/fadli.noer.9/','facebook'),
-                        ),
+                        facebook(),
                       ],
                     )
                   ),
@@ -212,6 +188,30 @@ class Footer extends StatelessWidget {
           Text('Copyright \u00a9 Palpal - ${DateTime.now().year}', style: GoogleFonts.poppins(),)
         ],
       ),
+    );
+  }
+
+  Widget instagram(){
+    return NavbarItem(
+      icon: FontAwesomeIcons.instagram, 
+      color: const Color(0xFFE1306C), 
+      onClick: ()=> html.window.open('https://www.instagram.com/pal23pal','instagram'),
+    );
+  }
+
+  Widget linkedin(){
+    return NavbarItem(
+      icon: FontAwesomeIcons.linkedin, 
+      color: const Color(0xFF0E76A8), 
+      onClick: ()=> html.window.open('https://www.linkedin.com/in/fadlialamsyah/','linkedin'),
+    );
+  }
+
+  Widget facebook(){
+    return NavbarItem(
+      icon: FontAwesomeIcons.facebook, 
+      color: const Color(0xFF4267B2), 
+      onClick: ()=> html.window.open('https://www.facebook.com/fadli.noer.9/','facebook'),
     );
   }
 }
@@ -275,20 +275,22 @@ class LogoMedia extends StatelessWidget{
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        RichText(
-          text: const TextSpan(
-            text: "Sengkaki",
-            style: TextStyle(
-              fontSize: 30,
-              fontFamily: 'Caramel',
-              color: titleColor,
-            ),
-            children: [
-              TextSpan(
-                text: "Media",
-                style: TextStyle(fontSize: 23, color: Colors.black54),
+        FittedBox(
+          child: RichText(
+            text: const TextSpan(
+              text: "Sengkaki",
+              style: TextStyle(
+                fontSize: 30,
+                fontFamily: 'Caramel',
+                color: titleColor,
               ),
-            ],
+              children: [
+                TextSpan(
+                  text: "Media",
+                  style: TextStyle(fontSize: 23, color: Colors.black54),
+                ),
+              ],
+            ),
           ),
         ),
         Text(

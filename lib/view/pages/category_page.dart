@@ -9,7 +9,6 @@ import '../widgets/grid_item.dart';
 import '../widgets/no_data.dart';
 import 'base_page.dart';
 import '../../utils/text_utils.dart';
-import '../../constant.dart';
 import '../../api/api_sengkaki.dart';
 
 class CategoryPage extends StatefulWidget {
