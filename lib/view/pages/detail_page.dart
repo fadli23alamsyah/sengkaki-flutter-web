@@ -6,6 +6,7 @@ import '../../constant.dart';
 import '../../model/news.dart';
 import '../../responsive.dart';
 import 'base_page.dart';
+import '../../utils/time_utils.dart';
 import '../../api/api_sengkaki.dart';
 
 class DetailPage extends StatefulWidget {
@@ -74,9 +75,9 @@ class _DetailPageState extends State<DetailPage> {
                   color: secondInfoBgColor,
                   borderRadius: BorderRadius.circular(100),
                 ),
-                child: const Text(
-                  'Desember 23, 2000',
-                  style: TextStyle(
+                child: Text(
+                  detailNews!.datePost.timeFormatApp(),
+                  style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black54,
                   ),

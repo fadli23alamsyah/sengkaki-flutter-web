@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../model/news.dart';
 import '../../constant.dart';
 import '../../utils/text_utils.dart';
+import '../../utils/time_utils.dart';
 
 class GridItem extends StatefulWidget {
   const GridItem({Key? key, required this.news, this.orientationLandscape = false}) : super(key: key);
@@ -161,7 +162,7 @@ class _GridItemState extends State<GridItem> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Text(
-                  widget.news.datePost.toString(),
+                  widget.news.datePost.timeFormatApp(),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black54,
