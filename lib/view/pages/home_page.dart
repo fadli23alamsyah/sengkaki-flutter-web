@@ -9,6 +9,7 @@ import 'base_page.dart';
 import '../../model/news.dart';
 import '../../constant.dart';
 import '../widgets/grid_item.dart';
+import '../../api/api_sengkaki.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,10 +28,10 @@ class _HomePageState extends State<HomePage> {
     getData();
   }
 
-  Future getData() async {
-    Future.delayed(const Duration(seconds: 5), () {
+  void getData() {
+    ApiSengkaki().getAllNews(select: 'all', limit: 11).then((value){
       setState(() {
-        latestNews = allNews;
+        latestNews = value;
         _isLoading = false;
       });
     });

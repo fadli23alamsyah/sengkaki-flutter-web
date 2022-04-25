@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../model/news.dart';
 import '../../constant.dart';
+import '../../utils/text_utils.dart';
 
 class GridItem extends StatefulWidget {
   const GridItem({Key? key, required this.news, this.orientationLandscape = false}) : super(key: key);
@@ -22,9 +23,8 @@ class _GridItemState extends State<GridItem> {
   @override
   void initState() {
     super.initState();
-    String titleLink = widget.news.title.replaceAll(' ', '-');
-    // linkPage = '/${widget.news.category.toLowerCase()}/$titleLink';
-    linkPage = '/budaya/$titleLink'; // fakeurl
+    final String uniqueUrl = widget.news.id!;
+    linkPage = '/${widget.news.category.toLowerCase()}/$uniqueUrl';
   }
 
   @override
@@ -86,7 +86,7 @@ class _GridItemState extends State<GridItem> {
                   borderRadius: BorderRadius.only(topRight: Radius.circular(10)),
                 ),
                 child: Text(
-                  widget.news.category,
+                  widget.news.category.ucWords(),
                   style: GoogleFonts.poppins(
                     textStyle: TextStyle(
                       fontSize: widget.orientationLandscape ? 16 :14,
@@ -161,7 +161,7 @@ class _GridItemState extends State<GridItem> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Text(
-                  widget.news.datePost,
+                  widget.news.datePost.toString(),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black54,

@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 class News {
   News({
+    this.id,
     required this.title,
     required this.description,
     required this.datePost,
@@ -8,53 +11,37 @@ class News {
     required this.sourceImg,
   });
 
+  final String? id;
   final String title;
   final String description;
-  final String datePost;
+  final int datePost;
   final String category;
   final String imageUrl;
   final String sourceImg;
+
+  factory News.formJson(Map<String, dynamic> map){
+    return News(
+      id: map['_id'],
+      title: map['title'], 
+      description: map['description'], 
+      datePost: map['date'], 
+      category: map['category'], 
+      imageUrl: map['imageUrl'], 
+      sourceImg: map['sourceImage'],
+    );
+  }
+
+  Map<String, dynamic> toJson(){
+    return {"title": title, "description": description, "category": category, "imageUrl": imageUrl, "sourceImage": sourceImg};
+  }
 }
 
-List<News> allNews = [
-  News(
-    title: 'Fabregas: Sepakbola Makin Kayak Robot, Kreativitas Sudah Mati',
-    description: 'Pemain asal Spanyol itu merasa sepakbola sudah banyak berubah dalam beberapa tahun ke belakang',
-    datePost: 'March 28, 2022',
-    category: 'Football',
-    imageUrl: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt8b6c10e03b4ac383/6240abacd3040b0f15caa15d/Cesc_Fabregas.jpg?auto=webp&format=pjpg&quality=60&width=1024',
-    sourceImg: 'SumberImage',
-  ),
-  News(
-    title: 'Fabregas: Sepakbola Makin Kayak Robot, Kreativitas Sudah Mati',
-    description: 'Pemain asal Spanyol itu merasa sepakbola sudah banyak berubah dalam beberapa tahun ke belakang',
-    datePost: 'March 28, 2022',
-    category: 'Football',
-    imageUrl: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt8b6c10e03b4ac383/6240abacd3040b0f15caa15d/Cesc_Fabregas.jpg?auto=webp&format=pjpg&quality=60&width=1024',
-    sourceImg: 'SumberImage',
-  ),
-  News(
-    title: 'Fabregas: Sepakbola Makin Kayak Robot, Kreativitas Sudah Mati',
-    description: 'Pemain asal Spanyol itu merasa sepakbola sudah banyak berubah dalam beberapa tahun ke belakang',
-    datePost: 'March 28, 2022',
-    category: 'Football',
-    imageUrl: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt8b6c10e03b4ac383/6240abacd3040b0f15caa15d/Cesc_Fabregas.jpg?auto=webp&format=pjpg&quality=60&width=1024',
-    sourceImg: 'SumberImage',
-  ),
-  News(
-    title: 'Fabregas: Sepakbola Makin Kayak Robot, Kreativitas Sudah Mati',
-    description: 'Pemain asal Spanyol itu merasa sepakbola sudah banyak berubah dalam beberapa tahun ke belakang',
-    datePost: 'March 28, 2022',
-    category: 'Football',
-    imageUrl: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt8b6c10e03b4ac383/6240abacd3040b0f15caa15d/Cesc_Fabregas.jpg?auto=webp&format=pjpg&quality=60&width=1024',
-    sourceImg: 'SumberImage',
-  ),
-  News(
-    title: 'Fabregas: Sepakbola Makin Kayak Robot, Kreativitas Sudah Mati',
-    description: 'Pemain asal Spanyol itu merasa sepakbola sudah banyak berubah dalam beberapa tahun ke belakang asdadas asdasdas dasdasasdasd asdadas asdad adasdas dasd ad aajdnad ajdjka da aj daj sdad ajnsanda ajdnajdnjasnd jandnjandas ajnsdankjd asdjasnjdnas asdnassndka ajsdnakdnkasd ajdnkasndka asdnsdnkas assdnkasdnkasnd askdaskdas',
-    datePost: 'March 28, 2022',
-    category: 'Football',
-    imageUrl: 'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt8b6c10e03b4ac383/6240abacd3040b0f15caa15d/Cesc_Fabregas.jpg?auto=webp&format=pjpg&quality=60&width=1024',
-    sourceImg: 'SumberImage',
-  ),
-];
+List<News> newsFromJson(String jsonData){
+  final data = json.decode(jsonData)["data"];
+  return List<News>.from(data.map((item) => News.formJson(item)));
+}
+
+String newsToJson(News data){
+  final jsonData = data.toJson();
+  return json.encode(jsonData);
+}

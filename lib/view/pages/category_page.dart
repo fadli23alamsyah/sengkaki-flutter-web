@@ -10,6 +10,7 @@ import '../widgets/no_data.dart';
 import 'base_page.dart';
 import '../../utils/text_utils.dart';
 import '../../constant.dart';
+import '../../api/api_sengkaki.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key}) : super(key: key);
@@ -31,10 +32,10 @@ class _CategoryPageState extends State<CategoryPage> {
     getData();
   }
 
-  Future getData() async{
-    await Future.delayed(const Duration(seconds: 2),(){
+  void getData() {
+    ApiSengkaki().getAllNews(select: category, limit: 0).then((value){
       setState(() {
-        categoryNews = allNews;
+        categoryNews = value;
         _isLoading = false;
       });
     });

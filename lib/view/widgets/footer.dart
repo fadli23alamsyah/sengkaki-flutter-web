@@ -184,13 +184,19 @@ class Footer extends StatelessWidget {
                         NavbarItem(
                           icon: FontAwesomeIcons.instagram, 
                           color: const Color(0xFFE1306C), 
-                          onClick: ()=> html.window.open('https://instagram.com/pal23pal','instagram'),
+                          onClick: ()=> html.window.open('https://www.instagram.com/pal23pal','instagram'),
                         ),
                         const SizedBox(width: 10,),
                         NavbarItem(
                           icon: FontAwesomeIcons.linkedin, 
                           color: const Color(0xFF0E76A8), 
                           onClick: ()=> html.window.open('https://www.linkedin.com/in/fadlialamsyah/','linkedin'),
+                        ),
+                        const SizedBox(width: 10,),
+                        NavbarItem(
+                          icon: FontAwesomeIcons.facebook, 
+                          color: const Color(0xFF4267B2), 
+                          onClick: ()=> html.window.open('https://www.facebook.com/fadli.noer.9/','facebook'),
                         ),
                       ],
                     )
