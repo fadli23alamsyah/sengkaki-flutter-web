@@ -76,7 +76,7 @@ class _DetailPageState extends State<DetailPage> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Text(
-                  detailNews!.datePost.timeFormatApp(),
+                  detailNews!.datePost!.timeFormatApp(),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black54,
@@ -118,7 +118,7 @@ class _DetailPageState extends State<DetailPage> {
                           Text(
                             detailNews!.description,
                             style: const TextStyle(
-                              fontSize: 16,
+                              fontSize: 18,
                             ),
                           ),
                         ],

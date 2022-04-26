@@ -41,13 +41,16 @@ class Footer extends StatelessWidget {
                       flex: 1,
                       child: FooterSection(
                         title: 'Menu', 
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
-                            FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
-                            FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
+                              FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
+                              FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -88,13 +91,16 @@ class Footer extends StatelessWidget {
                       const SizedBox(height: 10),
                       FooterSection(
                         title: 'Menu', 
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
-                            FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
-                            FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
+                              FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
+                              FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -224,7 +230,7 @@ class FooterMenuItem extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 8, bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       child: InkWell(
         onTap: () => onClick(),
         child: Text(

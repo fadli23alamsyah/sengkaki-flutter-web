@@ -5,7 +5,7 @@ class News {
     this.id,
     required this.title,
     required this.description,
-    required this.datePost,
+    this.datePost,
     required this.category,
     required this.imageUrl,
     required this.sourceImg,
@@ -14,7 +14,7 @@ class News {
   final String? id;
   final String title;
   final String description;
-  final int datePost;
+  final int? datePost;
   final String category;
   final String imageUrl;
   final String sourceImg;

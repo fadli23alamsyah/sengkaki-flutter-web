@@ -162,7 +162,7 @@ class _GridItemState extends State<GridItem> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 child: Text(
-                  widget.news.datePost.timeFormatApp(),
+                  widget.news.datePost!.timeFormatApp(),
                   style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black54,
