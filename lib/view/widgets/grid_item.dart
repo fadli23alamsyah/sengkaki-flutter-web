@@ -47,6 +47,13 @@ class _GridItemState extends State<GridItem> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: navColor.withOpacity(.4),
+              blurRadius: 10,
+              spreadRadius: 2,
+            )
+          ],
         ),
         child: widget.orientationLandscape
             ? Row(
