@@ -31,20 +31,23 @@ class NavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          RichText(
-            text: const TextSpan(
-              text: "Sengkaki",
-              style: TextStyle(
-                fontSize: 24,
-                fontFamily: 'Caramel',
-                color: titleColor,
-              ),
-              children: [
-                TextSpan(
-                  text: "Media",
-                  style: TextStyle(fontSize: 17, color: Colors.black54),
+          InkWell(
+            onTap: () => Get.toNamed(homePage),
+            child: RichText(
+              text: const TextSpan(
+                text: "Sengkaki",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontFamily: 'Caramel',
+                  color: titleColor,
                 ),
-              ],
+                children: [
+                  TextSpan(
+                    text: "Media",
+                    style: TextStyle(fontSize: 17, color: Colors.black54),
+                  ),
+                ],
+              ),
             ),
           ),
           (Responsive.isDesktop(context))
