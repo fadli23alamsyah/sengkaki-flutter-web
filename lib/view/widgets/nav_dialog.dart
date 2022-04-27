@@ -83,7 +83,7 @@ class NavDialog extends StatelessWidget {
             InkWell(
               borderRadius: BorderRadius.circular(5),
               onTap: () {
-                print('object');
+                Get.toNamed(aboutPage);
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),

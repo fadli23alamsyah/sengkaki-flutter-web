@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import '../view/pages/category_page.dart';
 import '../view/pages/detail_page.dart';
 import '../view/pages/home_page.dart';
+import 'view/pages/about_page.dart';
 import 'view/pages/post_page.dart';
 
 // route name for user
@@ -10,6 +11,7 @@ const String budayaPage = '/budaya';
 const String detailBudayaPage = '/budaya/:unique_url';
 const String lingkunganPage = '/lingkungan';
 const String detailLingkunganPage = '/lingkungan/:unique_url';
+const String aboutPage = '/about';
 
 // route name for admin 
 const String postPage = '/p05t1n6';
@@ -21,6 +23,7 @@ List<GetPage> routesName = [
   GetPage(name: lingkunganPage, page: () => const CategoryPage()),
   GetPage(name: detailBudayaPage, page: () => const DetailPage()),
   GetPage(name: detailLingkunganPage, page: () => const DetailPage()),
+  GetPage(name: aboutPage, page: () => const AboutPage()),
 
   GetPage(name: postPage, page: () => const PostPage()),
 ];

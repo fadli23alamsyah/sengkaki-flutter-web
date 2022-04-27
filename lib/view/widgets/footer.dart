@@ -48,7 +48,7 @@ class Footer extends StatelessWidget {
                             children: [
                               FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
                               FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
-                              FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
+                              FooterMenuItem(title: 'About', onClick: () => Get.toNamed(aboutPage)),
                             ],
                           ),
                         ),
@@ -98,7 +98,7 @@ class Footer extends StatelessWidget {
                             children: [
                               FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
                               FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
-                              FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
+                              FooterMenuItem(title: 'About', onClick: () => Get.toNamed(aboutPage)),
                             ],
                           ),
                         ),
@@ -154,7 +154,7 @@ class Footer extends StatelessWidget {
                           children: [
                             FooterMenuItem(title: 'Budaya', onClick: () => Get.toNamed(budayaPage)),
                             FooterMenuItem(title: 'Lingkungan', onClick: () => Get.toNamed(lingkunganPage)),
-                            FooterMenuItem(title: 'About', onClick: () => Get.toNamed(lingkunganPage)),
+                            FooterMenuItem(title: 'About', onClick: () => Get.toNamed(aboutPage)),
                           ],
                         ),
                       ),
