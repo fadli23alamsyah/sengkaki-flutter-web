@@ -80,46 +80,20 @@ class AboutPage extends StatelessWidget {
           ],
         ),
         width: double.infinity,
-        child: Responsive(
-          mobile: Column(
-             crossAxisAlignment: CrossAxisAlignment.center,
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-                photo(),
-                const SizedBox(height: 10),
-                aboutMe(),
-             ],
-           ), 
-          tablet: Row(
-             crossAxisAlignment: CrossAxisAlignment.center,
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-                Expanded(
-                  flex: 1,
-                  child: photo(),
-                ),
-                const SizedBox(width: 20),
-                Expanded(
-                  flex: 1,
-                  child: aboutMe(),
-                ),
-             ],
-           ),
-           desktop: Row(
-             crossAxisAlignment: CrossAxisAlignment.center,
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-                Expanded(
-                  flex: 1,
-                  child: photo(),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: aboutMe(),
-                ),
-             ],
-           ),
+        child: Column(
+          children: [
+            about(),
+            const Divider(thickness: 2, color: navColor,),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                  photo(),
+                  const SizedBox(width: 10),
+                  textAbout('ᨊᨘ ᨄᨒᨗ ᨕᨒᨐ ᨊᨔᨗ', 'Nur Fadli Alamsyah Nasir')
+              ],
+            ),
+          ],
         ),
       )
     );
@@ -131,21 +105,22 @@ class AboutPage extends StatelessWidget {
       child: Image.asset(
         '$pathImageAssets/saya.png',
         fit: BoxFit.cover,
-        height: 350,
+        height: 80,
       ),
     );
   }
 
-  Widget aboutMe(){
-    return Container(
+  Widget about(){
+    return SizedBox(
       width: double.infinity,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Align(
             alignment: Alignment.center,
             child: Text(
-              'Tentang Nakke',
+              'Tentang',
               style: GoogleFonts.poppins(
                 fontSize: 30,
                 fontWeight: FontWeight.w700
@@ -153,12 +128,16 @@ class AboutPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          textAbout('ᨕᨑᨙᨀᨘ Nur Fadli Alamsyah Nasir', 'Nama saya Nur Fadli Alamsyah Nasir'),
-          const SizedBox(height: 10),
-          textAbout('ᨕᨑᨙᨀᨘ Nur Fadli Alamsyah Nasir', 'Nama saya Nur Fadli Alamsyah Nasir'),
-          const SizedBox(height: 10),
-          textAbout('ᨕᨑᨙᨀᨘ Nur Fadli Alamsyah Nasir', 'Nama saya Nur Fadli Alamsyah Nasir'),
-          const SizedBox(height: 10),
+          Text('''
+      ᨔᨙᨀᨀᨗ ᨆᨙᨉᨗᨕ ᨕᨗᨕᨆᨈ ᨆᨙᨉᨗᨕ ᨕᨙᨑᨚ ᨅᨂᨘ ᨔᨘᨆᨂ ᨔᨗᨕᨁ ᨀᨄᨉᨘᨒᨗᨕ ᨊ ᨆᨉᨑᨀ ᨖᨘᨔᨘᨎ ᨈᨕᨘ ᨒᨚᨒᨚᨕ ᨄᨑᨙ ᨄᨉᨘᨒᨗ ᨑᨗ ᨅᨘᨉᨐ ᨔᨗᨕᨁ ᨒᨗᨀᨘᨂ ᨔᨙᨀᨗᨈ᨞ ᨀᨔᨘᨆ ᨕᨊᨙ ᨄᨑᨙ ᨕᨄᨒ ᨆᨔᨑᨀ ᨒᨒ ᨕᨄᨑᨙ ᨔᨚᨒᨘᨔᨗ ᨊᨔᨅ ᨕᨗᨔᨘ ᨕᨙᨑᨚ ᨅᨑᨗ-ᨅᨑᨗ ᨄᨚᨒᨙ ᨀᨉᨙᨈᨙᨊ ᨀᨗᨈ ᨕᨏᨒ ᨊᨁᨕᨘᨀᨂ᨞
+      ᨀᨆᨈᨚᨍᨗ ᨕᨊ ᨅᨔ, ᨕᨂᨒᨙᨀᨗ ᨄᨙᨑ ᨄᨑᨙ ᨕᨎᨚᨑᨚ ᨄᨅᨍᨗᨀ ᨔᨗᨕᨁ ᨀᨆᨍᨘᨕ ᨅᨔ ᨈ᨞ ᨊᨔᨅ ᨈᨘᨁᨒ-ᨈᨘᨁᨒ ᨍᨆ ᨄᨈ ᨌᨑᨗᨈᨊ ᨈᨚᨍᨗ ᨊ ᨀᨈᨙ ᨕᨘᨀᨗᨑᨗ ᨌᨑᨚᨈ ᨄᨑᨙ ᨍᨆ ᨄᨚᨒᨙ᨞
+
+ᨆᨙᨉᨗᨕ ᨄᨀᨙ ᨅᨔ ᨆᨀᨔᨑ
+          ''',
+          style: GoogleFonts.poppins(
+            fontSize: 24,
+          ),
+          )
         ],
       ),
     );
