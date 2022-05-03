@@ -130,7 +130,7 @@ class _GridItemState extends State<GridItem> {
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 22, // jika tulisan latin 20
                       // letterSpacing: 2,
                       fontWeight: FontWeight.w600,
                     ),
@@ -146,7 +146,7 @@ class _GridItemState extends State<GridItem> {
                     style: GoogleFonts.poppins(
                       textStyle: const TextStyle(
                         overflow: TextOverflow.ellipsis,
-                        fontSize: 16,
+                        fontSize: 18, //jika tulisan latin 16
                         color: subTitleColor,
                       ),
                     ),

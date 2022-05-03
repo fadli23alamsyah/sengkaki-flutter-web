@@ -117,8 +117,8 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           Text(
                             detailNews!.description,
-                            style: const TextStyle(
-                              fontSize: 18,
+                            style: GoogleFonts.poppins(
+                              fontSize: 21.5, // jika tulisan latin 18
                             ),
                           ),
                         ],
