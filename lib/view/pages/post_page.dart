@@ -133,10 +133,10 @@ class _PostPageState extends State<PostPage> {
                   ]),
 
                   // Field Data
-                  if(!_isLoading && dataTable!.isNotEmpty) ...dataTable!,
+                  if(!_isLoading && dataTable != null) ...dataTable!,
                 ],
               ),
-              (!_isLoading && dataTable!.isEmpty)
+              (!_isLoading && dataTable == null)
                   ? Table(
                       border: TableBorder.all(),
                       children: const [
